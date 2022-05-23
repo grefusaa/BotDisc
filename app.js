@@ -2,7 +2,8 @@ require("dotenv").config();
 
 const discord = require("discord.js");   //desestructuracion del paquete de discord para coger solo client e intents
 const client = new discord.Client({                         //constante donde se guarda el nuevo cliente
-    intents:["GUILDS", "GUILD_MESSAGES","GUILD_MEMBERS"],    //lo necesario para guardar una nueva conexión
+    intents: 32767,
+    partials:["GUILD_MEMBER","USER","CHANNEL","MESSAGE","REACTION"],    //lo necesario para guardar una nueva conexión
 });
 
 
@@ -30,8 +31,9 @@ mongoose.connect(mg, {
 
 client.commands = new discord.Collection();
 client.events = new discord.Collection();
+client.slash = new discord.Collection();
 
-["commandHandler", "eventHandler"].forEach((file) => {
+["commandHandler", "eventHandler", "slashHandler"].forEach((file) => {
     require(`./handlers/${file}`)(client, discord);
 });
 

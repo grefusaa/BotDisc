@@ -21,7 +21,6 @@ module.exports = async (client,discord,member) => {
         let user = await userModel.create({
             userID: member.id,
             userName: member.displayName,
-            serverID: member.guild.id,
         });
         user.save();
     } catch (error) {
@@ -46,7 +45,7 @@ module.exports = async (client,discord,member) => {
 
     const rol = guild.roles.cache.find((role) => role.name ==="coder");  //buscar rol por nombre, tambien se puede hacer por ID
 
-    member.roles.add(rol); //añade el rol a los usuarios
+    // member.roles.add(rol); //añade el rol a los usuarios
 
     //END ROLES
 

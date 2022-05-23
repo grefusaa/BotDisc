@@ -20,7 +20,6 @@ module.exports = async (client,discord, message) => {
             let user = await userModel.create({
             userID: message.author.id,
             userName: message.author.username,
-            serverID: message.guild.id,
             });
             user.save();
         }else{
@@ -32,8 +31,8 @@ module.exports = async (client,discord, message) => {
 
     //END REGISTRO
 
-    if (!message.content.startsWith(prefix))
-     return message.reply("Esto no es un comando");
+    // if (!message.content.startsWith(prefix))
+    //  return message.reply("Esto no es un comando");
 
     const args = message.content.slice(prefix.length).split(/ +/);        //division del argumento y el comando
     const cmd = args.shift().toLowerCase();
@@ -41,5 +40,6 @@ module.exports = async (client,discord, message) => {
     const command = client.commands.get(cmd) || client.commands.find((a) => a.aliases && a.aliases.includes(cmd));  //busca los comandos o busca los alias del comando dentro del archivo donde se encuentra el comando
 
     if(command) command.execute(client,message,args,discord);
-    if(!command) return  message.channel.send("¡Este comando no existe!");
+    // else if (command) command.run
+    // if(!command) return  message.channel.send("¡Este comando no existe!");
 };

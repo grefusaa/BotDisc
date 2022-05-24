@@ -72,7 +72,39 @@ module.exports = async (client,discord,member) => {
         }
     );
 
-    channel.send({embeds: [me]});
+
+
+
+    const btn1 = new discord.MessageButton()  //crea el boton
+    .setCustomId("acp")
+    .setLabel("Acepto")
+    .setStyle("SUCCESS");
+  const btn2 = new discord.MessageButton()
+    .setCustomId("deg")
+    .setLabel("No Acepto")
+    .setStyle("DANGER");
+  //% BUTTONS
+
+    //FILA
+    const fila = new discord.MessageActionRow().addComponents(btn1, btn2);  //se declara despues de los botones porque sino no los encuentra
+    //END FILA
+
+
+    const msgE = {                                  //RIGUROSO MENSAJE EMBEDIDO
+        title: "Reglas",
+        description: "Estas son las reglas del canal",
+        color: 65535,
+        author: {
+            name:"Respeta",
+            icon_url:"https://i.imgur.com/H37kxPH.jpeg",
+        },
+        fields:{
+            name:"No hay que hacer más",
+            value:"Disfruta"
+        },
+    };
+
+    channel.send({embeds: [me, msgE], components: [fila]});
 
 
 

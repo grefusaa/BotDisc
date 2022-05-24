@@ -12,7 +12,7 @@ module.exports = { //module exports son las instrucciones que le dicen a node qu
 
 
 
-        const response = await fetch('https://opentdb.com/api.php?amount=5');
+        const response = await fetch('https://opentdb.com/api.php?amount=5&type=boolean');
         const data = await response.json();
         console.log('DATOS DEL FETCH',data);
         

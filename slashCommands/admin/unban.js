@@ -1,10 +1,10 @@
-module.exports = {
-    name: "unban",
+module.exports = {      // lo mismo que el ban pero para desbanear
+    name: "unban",  
     description: "Desbanea a un usuario",
     options: [
       {
         name: "id",
-        description: "id del usuari a desbanear",
+        description: "id del usuario a desbanear",
         type: "STRING",
         required: "true",
       },
@@ -22,7 +22,7 @@ module.exports = {
   
       const emb = {
         author: {
-          name: "DESBANEOS EXPRESS",
+          name: "DESBANEO",
           icon_url: "https://cdn-icons-png.flaticon.com/512/1633/1633103.png",
         },
         title: "Desbaneo",

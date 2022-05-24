@@ -4,16 +4,18 @@ module.exports = {
     description: "Ejemplo de menu",
     async execute(client, message, args, discord) {
       //# MENU
+      //Crea un menu con una dropbox con 3 opciones
       const menu = new discord.MessageSelectMenu()
         .setCustomId("menu1")
         .setPlaceholder("Selecciona un tema")
         .addOptions([
-          { label: "Perros", description: "Imagen de perritos", value: "dog" },
+          { label: "Mongo db", description: "Imagen de Mongo", value: "dog" },
           { label: "El virtula", description: "Imagen de gatitos", value: "cat" },
-          { label: "Igunana", description: "Imagen de iguanas", value: "ing" },
+          { label: "nada", description: "nada de nada", value: "ing" },
         ]);
       //# MENU
       //& ROW
+      //Container para que fuera un menu
       const row = new discord.MessageActionRow().addComponents(menu);
       //& ROW
   
@@ -34,7 +36,8 @@ module.exports = {
       const fila = new discord.MessageActionRow().addComponents(btn1, btn2);
   
       //& FILA
-  
+      
+      //Aqui le decimos que envia primero la row y despues la fila
       message.channel.send({
         content: "Hola soy un menu",
         components: [row, fila],

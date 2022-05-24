@@ -1,5 +1,5 @@
 const { getVoiceConnection } = require("@discordjs/voice");
-
+                      //mismos comandos de musica pero adapatados para que sean slash commands
 module.exports = {
   name: "pause",
   description: "Pausa el reproductor",

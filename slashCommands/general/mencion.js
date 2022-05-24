@@ -1,10 +1,10 @@
-module.exports = {
+module.exports = {      //slash command para mencionar a un usuario
     name: "mencion",
     description: "Menciona un rol o usuario",
     options: [
       {
         name: "usurol",
-        description: "usuario/rol a mencionar",
+        description: "usuario/rol a mencionar", 
         type: "MENTIONABLE",
         required: "true",
       },
@@ -18,7 +18,7 @@ module.exports = {
     run: async (client, interaction) => {
       try {
         let mencionado;
-        if (interaction.options._hoistedOptions[0].user == undefined) {
+        if (interaction.options._hoistedOptions[0].user == undefined) { //hoisted options es un objeto dentro de interaction que contiene datos con los que nos interesa jugar como los datos del usuario mencionado
           mencionado = interaction.options._hoistedOptions[0].role;
         } else {
           mencionado = interaction.options._hoistedOptions[0].user;

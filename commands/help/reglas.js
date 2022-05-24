@@ -4,7 +4,7 @@ module.exports = {
     description: "Muestra las reglas y da rol",
     async execute(client, message, args, discord) {
       //% BUTTONS
-      const btn1 = new discord.MessageButton()
+      const btn1 = new discord.MessageButton()  //crea el boton
         .setCustomId("acp")
         .setLabel("Acepto")
         .setStyle("SUCCESS");
@@ -23,13 +23,13 @@ module.exports = {
 
         //MENSAJES
 
-        const msgE = {                                  //MENSAJE EMBEDIDO
+        const msgE = {                                  //RIGUROSO MENSAJE EMBEDIDO
             title: "Reglas",
             description: "Estas son las reglas del canal",
             color: 65535,
             author: {
                 name:"XIAO JIN PING",
-                con_url:"https://i.imgur.com/H37kxPH.jpeg",
+                icon_url:"https://i.imgur.com/H37kxPH.jpeg",
             },
             fields:{
                 name:"Ama a tu presidente y por encima de todo a tu país",
@@ -39,6 +39,6 @@ module.exports = {
 
         //END MENSAJES
 
-        message.channel.send({ embeds: [msgE], components: [fila] });
-    },
+        message.channel.send({ embeds: [msgE], components: [fila] }); //envia el mensaje embed y el componente fila que son los botones
+    }, 
 };

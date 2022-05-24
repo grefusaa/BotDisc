@@ -1,3 +1,7 @@
+//esta en pruebas, es algo que implementaré cuando sepa como
+
+
+
 
 //distube.js en handlers no va a ver aQUI
 const {DisTube} = require('distube');

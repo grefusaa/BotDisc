@@ -1,6 +1,6 @@
 const fs = require("fs");
-let slash = [];
-
+let slash = [];                                           //array para guardar los comandos slash
+                                                          //handler de comandos slash, como todos los handlers empieza igual
 module.exports = (client, discord) => {
   console.log("---------------------- COMANDOS SLASH ----------------------");
   fs.readdirSync("./slashCommands/").forEach((dir) => {
@@ -25,7 +25,7 @@ module.exports = (client, discord) => {
     }
   });
   console.log("---------------------- COMANDOS SLASH ----------------------");
-  client.on("ready", async () => {
+  client.on("ready", async () => {           //cuando el bot este conectado, hace un set de los comandos slash, hay que expulsar al bot y traerlo de nuevo para que cargue los comandos nuevos
     await client.application.commands.set(slash);
   });
 };
